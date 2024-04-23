@@ -4,6 +4,7 @@ public without sharing class LogEntry {
   public Decimal lineNumber { get; set; }
   public System.LoggingLevel logLevel { get; set; }
   public String message { get; set; }
+  public String stackTrace { get; set; }
   public String methodName { get; set; }
   public Id userId { get; set; }
   //public Datetime createdDatetime { get; set; }
@@ -18,7 +19,12 @@ public without sharing class LogEntry {
       '/' +
       Request.getCurrent().getQuiddity();
     this.logLevel = loggingLevel;
-    this.message = message;
+    if(message.contains('Stack trace:')){
+      this.stackTrace = message.substringAfter('Stack trace:');
+      this.message = message.substringBefore('Stack trace:');
+    }else{
+      this.message = message;
+    }
     this.userId = System.UserInfo.getUserId();
   }
 
@@ -44,7 +50,8 @@ public without sharing class LogEntry {
       LineNumber__c = this.lineNumber,
       LogLevel__c = this.logLevel.name(),
       Message__c = this.message,
-      MethodName__c = this.methodName
+      MethodName__c = this.methodName,
+      StackTrace__c = this.stackTrace
     );
   }
 }

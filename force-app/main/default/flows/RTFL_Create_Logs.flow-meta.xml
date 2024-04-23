@@ -61,6 +61,18 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Method_Name__c</field>
+            <value>
+                <elementReference>$Record.MethodName__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StackTrace__c</field>
+            <value>
+                <elementReference>$Record.StackTrace__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>User__c</field>
             <value>
                 <elementReference>$Record.CreatedById</elementReference>

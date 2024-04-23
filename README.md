@@ -10,6 +10,7 @@ To log a simple text
 Logger.getInstance().info('Simple info text').publish();
 Logger.getInstance().error('Simple error text').publish();
 ```
+![image](https://github.com/gskumar1609/Logger/assets/55816916/f27dfe6e-4734-469c-9ecb-75e4312cd80a)
 
 To capture exception information
 
@@ -20,6 +21,7 @@ try{
     Logger.getInstance().error(e).publish();
 }
 ```
+![image](https://github.com/gskumar1609/Logger/assets/55816916/80a378ae-666c-4c19-99e8-95435b5b0119)
 
 To capture errors in List<Database.SaveResult>
 
@@ -33,6 +35,8 @@ To log SOQL queries consumed, rows retrieved, CPU time consumed and Heap size us
 ```bash
 Logger.logLimits();
 ```
+![image](https://github.com/gskumar1609/Logger/assets/55816916/78d2f630-ff23-4283-97d2-f228f1edf605)
+
 
 Additionally, this framework logs BatchApexErrorEvent platform events, which capture information from all batches raising BatchApexErrorEvent platform events. To utilize this feature, the only requirement is to implement Database.RaisesPlatformEvents on the batch class.
 
@@ -41,3 +45,4 @@ public class <BatchClassName> implements Database.Batchable<sObject>, Database.R
 
 }
 ```
+![image](https://github.com/gskumar1609/Logger/assets/55816916/3bb224ae-a187-4fcd-9c89-7f419e4d5085)
